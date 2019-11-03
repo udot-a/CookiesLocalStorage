@@ -79,6 +79,6 @@ accept.onclick = (event) => {
         body: JSON.stringify(result)
     }).then(response => response.json())
         .then(response => {currentUser=response
-                            document.cookie = `login=${currentUser.login}`
+                            document.cookie = `login=${login.value}`
                             document.cookie = `userPass=${currentUser['pass-hash']}` })
 }
