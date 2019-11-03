@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <title>HW14_UDOT</title>
+    <script src="https://cdn.rawgit.com/chrisveness/crypto/4e93a4d/sha256.js"></script>
+</head>
+
+<body class="wrapper">
+    <div class="block-scheme">
+        <a href="#" id="showuser"> ЗАРЕГИСТРИРОВАТЬСЯ </a>
+        <a href="#" id="adduser"> ДОБАВИТЬ ПОЛЬЗОВАТЕЛЯ </a>
+        <a href="#" id="deluser"> УДАЛИТЬ ПОЛЬЗОВАТЕЛЯ </a>
+    </div>
+    <div class="regwrapper" id="registrationForm">
+        <h3>Registration form</h3>
+        <form id="registration">
+            Login:<input type="text" id="login">
+            First Name:<input type="text" name="firstname" id="firstName">
+            Last Name:<input type="text" name="lastname"id="lastName">
+            E-mail:<input type="email" name="email" id="email">
+            Password:<input type="password" id="pass1">
+            Confirm Password:<input type="password" id="pass2">
+            <img src="./img/anonim.png" width="50" alt="user avatar" id="avatar">
+            Choose avatar image <input type="file" id="chooseFile">
+            <input type="hidden" value="" name="pass-hash" id="passHash">
+            <input type="hidden" value="" name="user-photo" id="userPhoto">
+        </form>
+        <div>
+            <button id="accept">Accept</button><button id="exitbutton">Cancel</button>
+        </div>
+    </div>
+    <script src="./hw15.js"></script>
+</body>
+
+</html>
