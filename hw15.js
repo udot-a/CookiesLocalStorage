@@ -17,11 +17,13 @@ window.onload = (event) => {
             let state
             fetch('https://fea-15-andry.glitch.me/users/all')
                 .then(response => response.json())
-                .then(response =>{ state = response
+                .then(response =>{ userList = response
         
                  let userCookie = getCookies()
-                 if (userCookie['userPass'] && userCookie['userPass'] === userList[userCookie.login]['pass-hash'])
+                 if (userCookie['userPass'] && userCookie['userPass'] === userList[userCookie.login]['pass-hash']){
+                     currentUser=userList[userCookie.login]
                  console.log('user identifier: ok')
+                 }
                     else console.log('cookies is empty!!!')
                 })    
 }
@@ -30,10 +32,30 @@ showuser.onclick = (event) => {
     showuser.classList.add('loading-button')
     setTimeout(() => showuser.classList.remove('loading-button'), 500)
     registrationForm.style = "top:20%;"
-    console.log(userList.getState())
 }
 exitbutton.onclick = (event) => {
     registrationForm.style = ""
+}
+adduser.onclick = (event) => {
+    adduser.classList.add('loading-button')
+    setTimeout(() => showuser.classList.remove('loading-button'), 500)
+    logform.style = "top:20%;"
+}
+signCancel.onclick = (event) => {
+    logform.style = ""
+}
+signLogin.oninput = (event) =>{
+    let arrayOfLogins=[]
+    for (let key in userList) arrayOfLogins.push(key)
+    event.target.valid = arrayOfLogins.find(item => item===event.target.value)
+    event.target.style.color = event.target.valid ? "green" : "red"
+}
+signAccept.onclick = (event)=>{
+    if (userList[signLogin.value]['pass-hash']===Sha256.hash(signPass.value)){ 
+    currentUser = userList[signLogin.value]
+    alert(`Hello user ${currentUser.firstname}`)
+    }
+    else alert('Incorrect password!!!')
 }
 chooseFile.onchange = (event) => {
     let photo = event.target.files[0]
@@ -45,6 +67,7 @@ chooseFile.onchange = (event) => {
         userPhoto.value = event.target.result
     }
 }
+
 pass1.oninput = function (event) {
     let pass = event.target.value
     event.target.valid = pass.length > 6 && !!pass.match(/\d/) && !!pass.match(/\D/)

@@ -88,6 +88,19 @@ a:hover {
     z-index:100;
     background-color: lightgrey;
 }
+.log-wrapper{
+    position: fixed;
+    display:flex;
+    flex-direction: column;
+    border:1px solid gray;
+    box-shadow: 0 50px 50px rgba(0, 0, 0, 0.1);
+    padding: 5px;
+    left:40%;
+    top:-100%;
+    transition: all 1s;
+    z-index:100;
+    background-color: lightgrey
+}
 #registration{
     padding:10px;
     border:1px solid gray;
