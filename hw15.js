@@ -14,21 +14,16 @@ function getCookies () {
     return Object.assign ( {}, ...res )
 }
 window.onload = (event) => {
-    class StateData {
-        constructor(url) {
             let state
-            fetch(url)
+            fetch('https://fea-15-andry.glitch.me/users/all')
                 .then(response => response.json())
-                .then(response => state = response)
-            this.getState = () => state
-        }
-    }
-    userList = new StateData('https://fea-15-andry.glitch.me/users/all')
-    let userCookie = getCookies()
-    if (userCookie['userPass'] && userCookie['userPass'] === userList[userCookie.login]['pass-hash'])
-    console.log('user identifier: ok')
-    else console.log('cookies is empty!!!')
-
+                .then(response =>{ state = response
+        
+                 let userCookie = getCookies()
+                 if (userCookie['userPass'] && userCookie['userPass'] === userList[userCookie.login]['pass-hash'])
+                 console.log('user identifier: ok')
+                    else console.log('cookies is empty!!!')
+                })    
 }
 
 showuser.onclick = (event) => {
