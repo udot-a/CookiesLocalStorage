@@ -20,8 +20,8 @@ window.onload = (event) => {
                 .then(response =>{ userList = response
         
                  let userCookie = getCookies()
-                 if (userCookie['userPass'] && userCookie['userPass'] === userList[userCookie.login]['pass-hash']){
-                     currentUser=userList[userCookie.login]
+                 currentUser=userList[userCookie.login]
+                 if (userCookie['userPass'] && userCookie['userPass'] === currentUser['pass-hash']){
                  console.log('user identifier: ok')
                  }
                     else console.log('cookies is empty!!!')
