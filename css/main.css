@@ -75,6 +75,7 @@ a:hover {
     background-color: dimgray;
     border:1px solid darkgray;
 }
+
 .regwrapper{
     position: fixed;
     display:flex;
@@ -88,6 +89,7 @@ a:hover {
     z-index:100;
     background-color: lightgrey;
 }
+
 .log-wrapper{
     position: fixed;
     display:flex;
