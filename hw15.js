@@ -53,6 +53,8 @@ signLogin.oninput = (event) =>{
 signAccept.onclick = (event)=>{
     if (userList[signLogin.value]['pass-hash']===Sha256.hash(signPass.value)){ 
     currentUser = userList[signLogin.value]
+    document.cookie = `login=${login.value}`
+    document.cookie = `userPass=${currentUser['pass-hash']}`
     alert(`Hello user ${currentUser.firstname}`)
     }
     else alert('Incorrect password!!!')
